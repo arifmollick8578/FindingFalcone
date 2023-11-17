@@ -1,0 +1,62 @@
+-> Create design for the same:
+
+-> Application layer:
+ - UI
+   - Activity (Framelayout)
+   - Fragment
+   - Section (
+     title (planet/vehicle)
+     select count (2/6)
+     reset button
+     selected items (show a dialog fragment with checked/unchecked button)
+   )
+   - Grid view (with max of 2 item per row)
+
+ - Adapter
+   - Vehicle
+   - Planet
+
+ - ViewModel
+   - planets data (derived from repository)
+   - vehicles data (derived from repository)
+   - selected items on both section
+   - reset function
+   - result for
+   - save access token from shared prefs
+   -
+
+
+-> Data
+  - Api
+    - GET, POST methods
+  - Models (Requests and responses)
+  - Repository Impl
+     - Datasource Impl
+  - Utils
+    - Resources for API status handling
+    - Utils classes
+
+-> Domain
+  - Repository
+    - methods interface
+  - Data models to provide in UI level
+    - Add 1 new field,
+  - Use cases
+
+
+
+// draft code
+
+    inner class AdapterItemDiffUtil<T>(private val newItem: List<T>, private val oldItem: List<T>): DiffUtil.Callback() {
+        override fun getOldListSize() = oldItem.size
+
+        override fun getNewListSize() = newItem.size
+
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldItem[oldItemPosition] == newItem[newItemPosition]
+        }
+
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldItem[oldItemPosition] == newItem[newItemPosition
+        }
+    }
